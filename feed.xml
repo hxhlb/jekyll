@@ -1,345 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-<generator uri="http://jekyllrb.com" version="3.1.2">Jekyll</generator>
-<link href="https://jekyllrb.com/feed.xml" rel="self" type="application/atom+xml" />
-<link href="https://jekyllrb.com/" rel="alternate" type="text/html" />
-<updated>2016-03-08T14:44:56-08:00</updated>
-<id>https://jekyllrb.com/</id>
-<title>Jekyll • Simple, blog-aware, static sites</title>
-<subtitle>Transform your plain text into static websites and blogs</subtitle>
-<entry>
-<title>Jekyll 3.1.2 Released!</title>
-<link href="https://jekyllrb.com/news/2016/02/19/jekyll-3-1-2-released/" rel="alternate" type="text/html" title="Jekyll 3.1.2 Released!" />
-<published>2016-02-19T15:24:00-08:00</published>
-<updated>2016-02-19T15:24:00-08:00</updated>
-<id>https://jekyllrb.com/news/2016/02/19/jekyll-3-1-2-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2016/02/19/jekyll-3-1-2-released/">&lt;p&gt;Happy Friday from sunny California! Today, we’re excited to announce the release of Jekyll v3.1.2, which comes with some crucial bug fixes:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://jekyllrb.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jekyllrb.com/" rel="alternate" type="text/html" /><updated>2026-06-24T00:44:02-07:00</updated><id>https://jekyllrb.com/feed.xml</id><title type="html">Jekyll • Simple, blog-aware, static sites</title><subtitle>Transform your plain text into static websites and blogs</subtitle><entry><title type="html">Jekyll 4.4.1 Released</title><link href="https://jekyllrb.com/news/2025/01/29/jekyll-4-4-1-released/" rel="alternate" type="text/html" title="Jekyll 4.4.1 Released" /><published>2025-01-29T04:45:32-08:00</published><updated>2025-01-29T04:45:32-08:00</updated><id>https://jekyllrb.com/news/2025/01/29/jekyll-4-4-1-released</id><content type="html" xml:base="https://jekyllrb.com/news/2025/01/29/jekyll-4-4-1-released/"><![CDATA[<p>Publishing a patch release to restore existing behavior around defining front matter defaults
+where a scope with path containing glob patterns are lax in matching paths on disk.</p>]]></content><author><name>ashmaroli</name></author><category term="release" /><summary type="html"><![CDATA[Publishing a patch release to restore existing behavior around defining front matter defaults where a scope with path containing glob patterns are lax in matching paths on disk.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 4.4.0 Released</title><link href="https://jekyllrb.com/news/2025/01/27/jekyll-4-4-0-released/" rel="alternate" type="text/html" title="Jekyll 4.4.0 Released" /><published>2025-01-27T07:15:32-08:00</published><updated>2025-01-27T07:15:32-08:00</updated><id>https://jekyllrb.com/news/2025/01/27/jekyll-4-4-0-released</id><content type="html" xml:base="https://jekyllrb.com/news/2025/01/27/jekyll-4-4-0-released/"><![CDATA[<p>Greetings Jekyllers, Jekyll v4.4.0 has been published!</p>
 
-&lt;ul&gt;
-  &lt;li&gt;If a syntax error is encountered by Liquid, it will now print the line number.&lt;/li&gt;
-  &lt;li&gt;A nasty war between symbols and strings in our configuration hash caused kramdown syntax highlighting to break. That has been resolved; you stand victorious!&lt;/li&gt;
-  &lt;li&gt;A tilde at the beginning of a filename will no longer crash Jekyll.&lt;/li&gt;
-  &lt;li&gt;The &lt;code&gt;titleize&lt;/code&gt; filter mistakenly dropped words that were already capitalized. Fixed!&lt;/li&gt;
-  &lt;li&gt;Permalinks which end in a slash will now always output as a folder with an &lt;code&gt;index.html&lt;/code&gt; inside.&lt;/li&gt;
-&lt;/ul&gt;
+<p>This release comes with the following notable changes since v4.3.x:</p>
 
-&lt;p&gt;Nitty-gritty details, like always, are available in the &lt;a href=&quot;/docs/history/&quot;&gt;history&lt;/a&gt;.&lt;/p&gt;
+<ul>
+  <li>Liquid tag <code class="language-plaintext highlighter-rouge">highlight</code> now allows marking specific lines in the code-block.</li>
+  <li>Allow customizing the port that the vendored livereload script listens to, either via command-line flag
+<code class="language-plaintext highlighter-rouge">--livereload-port NUM</code> or via setting desired value to key <code class="language-plaintext highlighter-rouge">livereload_port</code> in configuration file.</li>
+  <li>Acknowledge paths passed to CLI flag <code class="language-plaintext highlighter-rouge">--livereload-ignore</code> or list of paths defined under configuration key
+<code class="language-plaintext highlighter-rouge">livereload_ignore</code> in order prevent automatic browser-refreshes on change to those paths.</li>
+  <li>Support for Ruby versions older than Ruby 2.7.0 has been dropped. Regardless, we recommend using Ruby 3.2.0 or newer
+to reduce inconveniences with installing newer versions of various plugins for Jekyll.</li>
+  <li>In order to improve the out-of-the-box experience with newer versions of Ruby, we have added gems <code class="language-plaintext highlighter-rouge">base64</code>, <code class="language-plaintext highlighter-rouge">csv</code> as
+runtime-dependencies. Consequently, those gems will be automatically installed with Jekyll and made available for use
+on issuing <code class="language-plaintext highlighter-rouge">bundle exec jekyll &lt;command&gt;</code>. <em>Users on older versions of Jekyll will have to manually add the gems to
+their Gemfile to resolve dependency errors</em>.</li>
+  <li>Gem <code class="language-plaintext highlighter-rouge">json</code> has been added as a runtime-dependency as well to provide consistent behavior across different platforms and
+different Ruby versions.</li>
+  <li>Version constraint on <code class="language-plaintext highlighter-rouge">mercenary</code> gem has been relaxed to automatically allow future releases.</li>
+</ul>
 
-&lt;p&gt;Thanks to those who contributed to this release: Alfred Xing, atomicules, bojanland, Brenton Horne, Carlos Garcés, Cash Costello, Chris, chrisfinazzo, Daniel Schildt, Dean Attali, Florian Thomas, Jordon Bedwell, Juuso Mikkonen, Katya Demidova, lonnen, Manabu Sakai, Michael Lee, Michael Lyons, Mitesh Shah, Nicolas Hoizey, Parker Moore, Pat Hawks, Prayag Verma, Robert Martin, Suriyaa Kudo, and toshi.&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.0.3 Released</title>
-<link href="https://jekyllrb.com/news/2016/02/08/jekyll-3-0-3-released/" rel="alternate" type="text/html" title="Jekyll 3.0.3 Released" />
-<published>2016-02-08T10:39:08-08:00</published>
-<updated>2016-02-08T10:39:08-08:00</updated>
-<id>https://jekyllrb.com/news/2016/02/08/jekyll-3-0-3-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2016/02/08/jekyll-3-0-3-released/">&lt;p&gt;&lt;a href=&quot;https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0&quot;&gt;GitHub Pages upgraded to Jekyll 3.0.2&lt;/a&gt; last week. With a testbed of
-over a million sites, this really put Jekyll 3 through the wringer. This
-release addresses a handful of bugs that were surfaced as a result. The
-fixes:&lt;/p&gt;
+<p>Special thanks to my co-maintainers and members from our community who were instrumental in improving Jekyll codebase,
+documentation and development workflow since the release of v4.3:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Fix problem where outputting to a folder would have two extensions&lt;/li&gt;
-  &lt;li&gt;Handle tildes (&lt;code&gt;~&lt;/code&gt;) in filenames properly&lt;/li&gt;
-  &lt;li&gt;Fix issue when comparing documents without dates&lt;/li&gt;
-  &lt;li&gt;Include line numbers in liquid error output&lt;/li&gt;
-&lt;/ul&gt;
+<p>Akira Taguchi, Andy Coates, Daniel Haim, David Silveira, Gabriel B. Nunes, Gaelan Lloyd, Gourav Khunger, IFcoltransG,
+James Hoctor, Joe Mahoney, Joel Coffman, Jonas Jared Jacek, Jorge, Josh Soref, José Romero, Juan Vásquez, KenHV, Khalila,
+Koichi ITO, Krisztian Zsolt Sallai, Maciek Palmowski, Mamoru TASAKA, Matt Rogers, Michael Nordmeyer, Mike Slinn,
+Moncef Belyamani, Muhab Abdelreheem, Olle Jonsson, Olly Headey, Otto Liljalaakso, Parker Moore, QuinnG8, Ram Vasuthevan,
+Robert Austin, Robert Love, Sean M. Collins, Seth Falco, Seth Louis, Shruti Dalvi, Silent, Simon Wagar, Sutou Kouhei,
+Tomáš Hübelbauer, Valeriy Van, Virgil Ierubino, Vít Ondruch, William Entriken, William Underwood, a story, halorrr,
+iulianOnofrei (U-lee-aan), masaki, naoki kodama, nisbet-hubbard, plgagne, velle, waqarnazir, なつき and 林博仁 Buo-ren Lin</p>
 
-&lt;p&gt;Read more on the &lt;a href=&quot;/docs/history/#v3-0-3&quot;&gt;changelog&lt;/a&gt; with links to the
-related patches.&lt;/p&gt;
+<p>Happy Jekyllin’!!</p>]]></content><author><name>ashmaroli</name></author><category term="release" /><summary type="html"><![CDATA[Greetings Jekyllers, Jekyll v4.4.0 has been published!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 4.3.4 Released</title><link href="https://jekyllrb.com/news/2024/09/16/jekyll-4-3-4-released/" rel="alternate" type="text/html" title="Jekyll 4.3.4 Released" /><published>2024-09-16T09:04:22-07:00</published><updated>2024-09-16T09:04:22-07:00</updated><id>https://jekyllrb.com/news/2024/09/16/jekyll-4-3-4-released</id><content type="html" xml:base="https://jekyllrb.com/news/2024/09/16/jekyll-4-3-4-released/"><![CDATA[<p>Hello Jekyllers!</p>
 
-&lt;p&gt;Please keep &lt;a href=&quot;{{ site.repository }}/issues&quot;&gt;submitting bugs&lt;/a&gt; as you find them! Please do take a look
-&lt;a href=&quot;/help/&quot;&gt;in our various help resources&lt;/a&gt; before filing a bug and use &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;our
-forum&lt;/a&gt; for asking questions and getting help on a specific problem
-you’re having.&lt;/p&gt;
+<p>Publishing a small bug-fix release with the following patches:</p>
 
-&lt;p&gt;Happy Jekylling!&lt;/p&gt;
+<ul>
+  <li>Relax version-constraint on gem <code class="language-plaintext highlighter-rouge">wdm</code> in Gemfile created by <code class="language-plaintext highlighter-rouge">jekyll new</code>.</li>
+  <li>Patch <code class="language-plaintext highlighter-rouge">Jekyll::Drops::ThemeDrop#root</code> to render absolute path to theme-gem only if <code class="language-plaintext highlighter-rouge">JEKYLL_ENV</code> is explicitly set
+to string <code class="language-plaintext highlighter-rouge">development</code>.</li>
+</ul>
 
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.1.1 Released</title>
-<link href="https://jekyllrb.com/news/2016/01/28/jekyll-3-1-1-released/" rel="alternate" type="text/html" title="Jekyll 3.1.1 Released" />
-<published>2016-01-28T17:21:50-08:00</published>
-<updated>2016-01-28T17:21:50-08:00</updated>
-<id>https://jekyllrb.com/news/2016/01/28/jekyll-3-1-1-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2016/01/28/jekyll-3-1-1-released/">&lt;p&gt;This release squashes a few bugs &lt;img class=&quot;emoji&quot; title=&quot;:bug:&quot; alt=&quot;:bug:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f41b.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt; &lt;img class=&quot;emoji&quot; title=&quot;:bug:&quot; alt=&quot;:bug:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f41b.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt; &lt;img class=&quot;emoji&quot; title=&quot;:bug:&quot; alt=&quot;:bug:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/1f41b.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt; noticed by a few
-wonderful Jekyll users:&lt;/p&gt;
+<p>That is all for now.
+Happy Jekyllin’!!</p>]]></content><author><name>ashmaroli</name></author><category term="release" /><summary type="html"><![CDATA[Hello Jekyllers!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 3.10.0 Released</title><link href="https://jekyllrb.com/news/2024/06/23/jekyll-3-10-0-released/" rel="alternate" type="text/html" title="Jekyll 3.10.0 Released" /><published>2024-06-23T21:56:58-07:00</published><updated>2024-06-23T21:56:58-07:00</updated><id>https://jekyllrb.com/news/2024/06/23/jekyll-3-10-0-released</id><content type="html" xml:base="https://jekyllrb.com/news/2024/06/23/jekyll-3-10-0-released/"><![CDATA[<p>As Ruby continues to march on, the maintainers have made the decision to
+drop some previously-bundled gems. This release makes Jekyll depend
+directly on those gems so that whether your Ruby installation has them
+bundled or not, your experience can continue uninterrupted.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;If your &lt;code&gt;permalink&lt;/code&gt; ended with a &lt;code&gt;/&lt;/code&gt;, your URL didn’t have any extension,
-even if you wanted one&lt;/li&gt;
-  &lt;li&gt;We now strip the BOM by default per Ruby’s &lt;code&gt;IO.open&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;page.dir&lt;/code&gt; will not always end in a slash.&lt;/li&gt;
-&lt;/ul&gt;
+<p>More details <a href="/docs/history/#v3-10-0">are in the changelog</a>.</p>
 
-&lt;p&gt;We also updated our &lt;a href=&quot;/docs/conduct/&quot;&gt;Code of Conduct&lt;/a&gt; to the latest version of
-the Contributor Covenant. The update includes language to ensure that the
-reporter of the incident remains confidential to non-maintainers and that
-all complaints will result in an appropriate response. I care deeply about
-Jekyll’s community and will do everything in my power to ensure it is a
-welcoming community. Feel free to reach out to me directly if you feel
-there is a way we can improve the community for everyone! If you’re
-interested in more details, &lt;a href=&quot;https://github.com/ContributorCovenant/contributor_covenant/blob/v1_4/diffs/1_3_vs_1_4.patch&quot;&gt;there is a diff for
-that&lt;/a&gt;.&lt;/p&gt;
+<p>Happy Jekylling!</p>]]></content><author><name>parkr</name></author><category term="release" /><summary type="html"><![CDATA[As Ruby continues to march on, the maintainers have made the decision to drop some previously-bundled gems. This release makes Jekyll depend directly on those gems so that whether your Ruby installation has them bundled or not, your experience can continue uninterrupted.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 3.9.4 Released</title><link href="https://jekyllrb.com/news/2023/12/28/jekyll-3-9-4-released/" rel="alternate" type="text/html" title="Jekyll 3.9.4 Released" /><published>2023-12-28T14:45:05-08:00</published><updated>2023-12-28T14:45:05-08:00</updated><id>https://jekyllrb.com/news/2023/12/28/jekyll-3-9-4-released</id><content type="html" xml:base="https://jekyllrb.com/news/2023/12/28/jekyll-3-9-4-released/"><![CDATA[<p>Hey Jekyllers!</p>
 
-&lt;p&gt;See links to the PR’s on &lt;a href=&quot;/docs/history/#v3-1-1&quot;&gt;the history page&lt;/a&gt;.&lt;/p&gt;
+<p>This release, 3.9.4, is to bring Ruby 3.3 support to Jekyll. You can find
+the details in <a href="/docs/history/#v3-9-4">the changelog</a>.</p>
 
-&lt;p&gt;Thanks to Jordon Bedwell, chrisfinazzo, Kroum Tzanev, David Celis, and
-Alfred Xing for their commits on this latest release! &lt;img class=&quot;emoji&quot; title=&quot;:sparkles:&quot; alt=&quot;:sparkles:&quot; src=&quot;https://assets.github.com/images/icons/emoji/unicode/2728.png&quot; height=&quot;20&quot; width=&quot;20&quot; align=&quot;absmiddle&quot; /&gt;&lt;/p&gt;
+<p>Happy Jekylling!</p>]]></content><author><name>parkr</name></author><category term="release" /><summary type="html"><![CDATA[Hey Jekyllers!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 4.3.3 Released</title><link href="https://jekyllrb.com/news/2023/12/27/jekyll-4-3-3-released/" rel="alternate" type="text/html" title="Jekyll 4.3.3 Released" /><published>2023-12-27T09:15:00-08:00</published><updated>2023-12-27T09:15:00-08:00</updated><id>https://jekyllrb.com/news/2023/12/27/jekyll-4-3-3-released</id><content type="html" xml:base="https://jekyllrb.com/news/2023/12/27/jekyll-4-3-3-released/"><![CDATA[<p>Hello Jekyllers!</p>
 
-&lt;p&gt;Happy Jekylling!&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.1.0 Released</title>
-<link href="https://jekyllrb.com/news/2016/01/24/jekyll-3-1-0-released/" rel="alternate" type="text/html" title="Jekyll 3.1.0 Released" />
-<published>2016-01-24T13:16:12-08:00</published>
-<updated>2016-01-24T13:16:12-08:00</updated>
-<id>https://jekyllrb.com/news/2016/01/24/jekyll-3-1-0-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2016/01/24/jekyll-3-1-0-released/">&lt;p&gt;Happy weekend! To make your weekend all the better, we have just released
-v3.1.0 of Jekyll.&lt;/p&gt;
+<p>This is a very small release containing two things:</p>
 
-&lt;p&gt;There are &lt;em&gt;lots&lt;/em&gt; of great performance improvements, including a huge one
-which is to use Liquid drops instead of hashes. Much of the slowness in
-Jekyll is due to Jekyll making lots of objects it doesn’t need to make.
-By making these objects only as they’re needed, we can speed up Jekyll
-considerably!&lt;/p&gt;
+<ul>
+  <li>A fix for using Jekyll with Ruby 3.3 and the new <code class="language-plaintext highlighter-rouge">logger</code> gem included with that release.</li>
+  <li>A test fix for newer versions of Ruby for packagers that run the test suite
+ as part of their packaging process.</li>
+</ul>
 
-&lt;p&gt;Some other highlights:&lt;/p&gt;
+<p>Nothing new in the way of features for this release. You’ll need to wait for v4.4 for that. 😄</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Fix: &lt;code&gt;permalink&lt;/code&gt;s with non-HTML extensions will not be honored&lt;/li&gt;
-  &lt;li&gt;Fix: &lt;code&gt;jekyll clean&lt;/code&gt; now accepts build flags like &lt;code&gt;--source&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Enhancement: &lt;code&gt;include&lt;/code&gt; tags can now accept multiple liquid variables&lt;/li&gt;
-  &lt;li&gt;Feature: adds new &lt;code&gt;sample&lt;/code&gt; liquid tag which gets random element from an array&lt;/li&gt;
-  &lt;li&gt;Fix: Jekyll will read in files with YAML front matter that has extraneous
-spaces after the first line&lt;/li&gt;
-  &lt;li&gt;Enhancement: extract the &lt;code&gt;title&lt;/code&gt; attribute from the filename for
-collection items without a date&lt;/li&gt;
-  &lt;li&gt;Fix: gracefully handle empty configuration files&lt;/li&gt;
-&lt;/ul&gt;
+<p>Happy Jekylling!!</p>]]></content><author><name>mattr-</name></author><category term="release" /><summary type="html"><![CDATA[Hello Jekyllers!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 3.9.3 Released</title><link href="https://jekyllrb.com/news/2023/01/29/jekyll-3-9-3-released/" rel="alternate" type="text/html" title="Jekyll 3.9.3 Released" /><published>2023-01-29T18:30:22-08:00</published><updated>2023-01-29T18:30:22-08:00</updated><id>https://jekyllrb.com/news/2023/01/29/jekyll-3-9-3-released</id><content type="html" xml:base="https://jekyllrb.com/news/2023/01/29/jekyll-3-9-3-released/"><![CDATA[<p>Jekyll 3.9.3 is a bug fix release loosening version restrictions for
+dependencies <code class="language-plaintext highlighter-rouge">i18n</code> and <code class="language-plaintext highlighter-rouge">tzinfo</code> gems. You can now use Jekyll v3.9 with
+newer versions of these gems!</p>
 
-&lt;p&gt;… and &lt;a href=&quot;/docs/history/#v3-1-0&quot;&gt;a whole bunch more&lt;/a&gt;!&lt;/p&gt;
+<p>More details in <a href="/docs/history/#v3-9-3">the full release notes</a>.</p>
 
-&lt;p&gt;Please &lt;a href=&quot;{{ site.repository }}/issues/new?title=Jekyll+3.1.0+Issue:&quot;&gt;file a bug&lt;/a&gt;
-if you encounter any issues! As always, &lt;a href=&quot;https://talk.jekyllrb.com&quot;&gt;Jekyll Talk&lt;/a&gt;
-is the best place to get help if you’re encountering a problem.&lt;/p&gt;
+<p>Happy Jekylling!</p>]]></content><author><name>parkr</name></author><category term="release" /><summary type="html"><![CDATA[Jekyll 3.9.3 is a bug fix release loosening version restrictions for dependencies i18n and tzinfo gems. You can now use Jekyll v3.9 with newer versions of these gems!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 4.3.2 Released</title><link href="https://jekyllrb.com/news/2023/01/20/jekyll-4-3-2-released/" rel="alternate" type="text/html" title="Jekyll 4.3.2 Released" /><published>2023-01-20T09:30:00-08:00</published><updated>2023-01-20T09:30:00-08:00</updated><id>https://jekyllrb.com/news/2023/01/20/jekyll-4-3-2-released</id><content type="html" xml:base="https://jekyllrb.com/news/2023/01/20/jekyll-4-3-2-released/"><![CDATA[<p>Hello Jekyllers!</p>
 
-&lt;p&gt;Special thanks to all our amazing contributors who helped make v3.1.0 a
-possibility:&lt;/p&gt;
+<p>This is a small release containing fixes for some issues that came to our attention after the
+release of v4.3.1:</p>
+<ul>
+  <li>Our <code class="language-plaintext highlighter-rouge">link</code> tag had a significant performance regression with the release of v4.3.0 solely due
+to a change related to <code class="language-plaintext highlighter-rouge">Jekyll::Site#each_site_file</code>. The new patch restores previous performance
+while maintaining the enhancements introduced in v4.3.0.</li>
+  <li>The tables printed out on running a build with the <code class="language-plaintext highlighter-rouge">--profile</code> did not stop including the
+misleading <code class="language-plaintext highlighter-rouge">TOTALS</code> row as advertised in the release-notes for v4.3.0. The row has been removed
+completely now.</li>
+  <li><code class="language-plaintext highlighter-rouge">jekyll-sass-converter-3.0.0</code> that shipped in the interim was not happy with our blank-site
+scaffolding (from running <code class="language-plaintext highlighter-rouge">jekyll new &lt;path&gt; --blank</code>) having a <code class="language-plaintext highlighter-rouge">main.scss</code> stylesheet template
+<em>import</em> a Sass partial <em>also named</em> <code class="language-plaintext highlighter-rouge">main.scss</code>. So the partial has been renamed to <code class="language-plaintext highlighter-rouge">base.scss</code>.</li>
+</ul>
 
-&lt;p&gt;Alex J Best, Alexander Köplinger, Alfred Xing, Alistair Calder, Atul
-Bhosale, Ben Orenstein, Chi Trung Nguyen, Conor O’Callaghan, Craig P.
-Motlin, Dan K, David Burela, David Litvak Bruno, Decider UI, Ducksan Cho,
-Florian Thomas, James Wen, Jordon Bedwell, Joseph Wynn, Kakoma, Liam
-Bowers, Mike Neumegen, Nick Quaranto, Nielsen Ramon, Olivér Falvai, Pat
-Hawks, Paul Robert Lloyd, Pedro Euko, Peter Suschlik, Sam Volin, Samuel
-Wright, Sasha Friedenberg, Tim Cuthbertson, Vincent Wochnik, William
-Entriken, Zshawn Syed, chrisfinazzo, ducksan cho, leethomas,
-midnightSuyama, musoke, and rebornix&lt;/p&gt;
+<p>That’s about it for this release. Depending on whether you use the features patched in this release,
+you may either wait for v4.4.0 (releasing in the near future) to update your Gemfile or, download
+the latest release right away! :)</p>
 
-&lt;p&gt;Happy Jekylling!&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.0.2 Released</title>
-<link href="https://jekyllrb.com/news/2016/01/20/jekyll-3-0-2-released/" rel="alternate" type="text/html" title="Jekyll 3.0.2 Released" />
-<published>2016-01-20T14:08:18-08:00</published>
-<updated>2016-01-20T14:08:18-08:00</updated>
-<id>https://jekyllrb.com/news/2016/01/20/jekyll-3-0-2-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2016/01/20/jekyll-3-0-2-released/">&lt;p&gt;A crucial bug was found in v3.0.1 which caused invalid post dates to go
-unnoticed in the build chain until the error that popped up was unhelpful.
-v3.0.2 &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/4375&quot;&gt;throws errors as you’d expect&lt;/a&gt;
-when there is a post like &lt;code&gt;_posts/2016-22-01-future.md&lt;/code&gt; or a post has an
-invalid date like &lt;code&gt;date: &quot;tuesday&quot;&lt;/code&gt; in their front matter.&lt;/p&gt;
+<p>Happy Jekyllin’!!</p>]]></content><author><name>ashmaroli</name></author><category term="release" /><summary type="html"><![CDATA[Hello Jekyllers!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll Sass Converter 3.0 Released</title><link href="https://jekyllrb.com/news/2022/12/21/jekyll-sass-converter-3.0-released/" rel="alternate" type="text/html" title="Jekyll Sass Converter 3.0 Released" /><published>2022-12-21T04:22:15-08:00</published><updated>2022-12-21T04:22:15-08:00</updated><id>https://jekyllrb.com/news/2022/12/21/jekyll-sass-converter-3.0-released</id><content type="html" xml:base="https://jekyllrb.com/news/2022/12/21/jekyll-sass-converter-3.0-released/"><![CDATA[<p>Jekyll Sass Converter 3.0 shipped recently and is available to those using Jekyll 4.3 and above. This release contains major changes.
+Specifically, the plugin has <strong>stopped using <code class="language-plaintext highlighter-rouge">sassc</code> for converting your Sass partials and stylesheets</strong> into CSS files.
+Instead, the converter now uses the <code class="language-plaintext highlighter-rouge">sass-embedded</code> gem acting as an interface to Dart Sass, which is the current primary
+implementation of Sass under active development. The secondary implementation <code class="language-plaintext highlighter-rouge">libsass</code> which the <code class="language-plaintext highlighter-rouge">sassc</code> gem interfaced
+with has been deprecated by its developers.</p>
 
-&lt;p&gt;This should make the experience of working with Jekyll just a little
-better.&lt;/p&gt;
+<p>However, Dart Sass isn’t <em>fully compatible</em> with older Ruby Sass workflow.</p>
 
-&lt;p&gt;Happy Jekylling!&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.0.1 Released</title>
-<link href="https://jekyllrb.com/news/2015/11/17/jekyll-3-0-1-released/" rel="alternate" type="text/html" title="Jekyll 3.0.1 Released" />
-<published>2015-11-17T22:04:39-08:00</published>
-<updated>2015-11-17T22:04:39-08:00</updated>
-<id>https://jekyllrb.com/news/2015/11/17/jekyll-3-0-1-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2015/11/17/jekyll-3-0-1-released/">&lt;p&gt;Hey, folks! Bunch of bug fixes here. Notables:&lt;/p&gt;
+<h2 id="requirements">Requirements</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Only superdirectories of &lt;code&gt;_posts&lt;/code&gt; will be categories.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;:title&lt;/code&gt; in permalink templates are now properly cased as before&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;.jekyll-metadata&lt;/code&gt; being erroneously written when not using incremental build.&lt;/li&gt;
-  &lt;li&gt;Failure in liquid will now always fail the &lt;code&gt;jekyll&lt;/code&gt; process.&lt;/li&gt;
-  &lt;li&gt;All hooks should now be properly registered &amp;amp; documented&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Minimum Ruby Version: <code class="language-plaintext highlighter-rouge">Ruby 2.6.0</code> (all platforms).</li>
+  <li>Minimum Rubygems Version: <code class="language-plaintext highlighter-rouge">3.3.22</code> (for Linux-based platforms).</li>
+</ul>
 
-&lt;p&gt;And a bunch more changes which you can see over in the
-&lt;a href=&quot;/docs/history&quot;&gt;changelog&lt;/a&gt;.&lt;/p&gt;
+<h2 id="migration-guide">Migration Guide</h2>
 
-&lt;p&gt;Thanks to the 17 developers who contributed code and documentation to this
-patch release: Alfred Xing, Christian Trosell, Jordan Thornquest, Jordon
-Bedwell, Larry Fox, Lawrence Murray, Lewis Cowles, Matt Rogers, Nicole
-White, Parker Moore, Paul Robert Lloyd, Sarah Kuehnle, Vincent Wochnik,
-Will Norris, XhmikosR, chrisfinazzo, and rebornix.&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.0 Released</title>
-<link href="https://jekyllrb.com/news/2015/10/26/jekyll-3-0-released/" rel="alternate" type="text/html" title="Jekyll 3.0 Released" />
-<published>2015-10-26T15:37:30-07:00</published>
-<updated>2015-10-26T15:37:30-07:00</updated>
-<id>https://jekyllrb.com/news/2015/10/26/jekyll-3-0-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2015/10/26/jekyll-3-0-released/">&lt;p&gt;The much-anticipated Jekyll 3.0 has been released! Key changes:&lt;/p&gt;
+<h3 id="dropped-implmentation-option">Dropped <code class="language-plaintext highlighter-rouge">implmentation</code> Option</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;Incremental regeneration (experimental, enable with &lt;code&gt;--incremental&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;Liquid profiler (add &lt;code&gt;--profile&lt;/code&gt; to a build or serve)&lt;/li&gt;
-  &lt;li&gt;Hook plugin API (no more monkey-patching!)&lt;/li&gt;
-  &lt;li&gt;Dependencies reduced from 14 to 8, none contain C extensions. We’re hoping to reduce this even more in the future.&lt;/li&gt;
-  &lt;li&gt;Changed version support: no support for Ruby 1.9.3, added basic JRuby support. Better Windows support.&lt;/li&gt;
-  &lt;li&gt;Extension-less URLs&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;site.collections&lt;/code&gt; is an array of collections, thus:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;collection[0]&lt;/code&gt; becomes &lt;code&gt;collection.label&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;collection[1]&lt;/code&gt; becomes &lt;code&gt;collection&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Default highlighter is now Rouge instead of Pygments&lt;/li&gt;
-  &lt;li&gt;Lots of performance improvements&lt;/li&gt;
-  &lt;li&gt;… and lots more!&lt;/li&gt;
-&lt;/ul&gt;
+<p>In <code class="language-plaintext highlighter-rouge">v3.0.x</code>, <code class="language-plaintext highlighter-rouge">sass-embedded</code> is the only supported Sass implmentation, and therefore the config option
+<code class="language-plaintext highlighter-rouge">sass.implementation</code> introduced in <code class="language-plaintext highlighter-rouge">v2.2.0</code> has been removed.</p>
 
-&lt;p&gt;We also added a &lt;a href=&quot;/docs/conduct/&quot;&gt;Code of Conduct&lt;/a&gt; to encourage a happier, nicer community where contributions and discussion is protected from negative behaviour.&lt;/p&gt;
+<h3 id="dropped-add_charset-option">Dropped <code class="language-plaintext highlighter-rouge">add_charset</code> Option</h3>
 
-&lt;p&gt;A huge shout-out to the amazing Jekyll Core Team members Jordon Bedwell, Alfred Xing, and Matt Rogers for all their hard work in making Jekyll 3 the best release yet.&lt;/p&gt;
+<p>The converter will no longer emit <code class="language-plaintext highlighter-rouge">@charset "UTF-8";</code> or a <code class="language-plaintext highlighter-rouge">U+FEFF</code> (byte-order marker) for <code class="language-plaintext highlighter-rouge">sassify</code> and <code class="language-plaintext highlighter-rouge">scssify</code>
+Jekyll filters and hence the redundant option <code class="language-plaintext highlighter-rouge">sass.add_charset</code> is no longer active.</p>
 
-&lt;p&gt;We also added &lt;a href=&quot;https://talk.jekyllrb.com&quot;&gt;Jekyll Talk&lt;/a&gt;, managed solely by Jordon, which offers a modern forum experience for Jekyllers across the globe to talk and learn about Jekyll!&lt;/p&gt;
+<h3 id="dropped-line_comments-option">Dropped <code class="language-plaintext highlighter-rouge">line_comments</code> Option</h3>
 
-&lt;p&gt;As always, check out the &lt;a href=&quot;/docs/history/#v3-0-0&quot;&gt;full history&lt;/a&gt; for more details.&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">sass-embedded</code> does not support <code class="language-plaintext highlighter-rouge">sass.line_comments</code> option.</p>
 
-&lt;p&gt;Our contributors are the core of what makes Jekyll great! Many thanks to the 132 contributors who made this release possible (in alphabetical order): AJ Acevedo, Adam Richeimer, Alan Scherger, Alfred Xing, Anatol Broder, Andrew Dunning, Anna Debenham, Anton, Arne Gockeln, Arthur Hammer, Arthur Neves, BRAVO, Ben Balter, Bernardo Dias, BigBlueHat, Brandon Mathis, Bruce Smith, Cai⚡️, Carlos Matallín, ChaYoung You, Christian Vuerings, Cory Simmons, David Herman, David Silva Smith, David Smith, David Wales, David Williamson, DigitalSparky, Dimitri König, Dominik, Eduardo Boucas, Eduardo Bouças, Eduardo Bouças, Erlend Sogge Heggen, Eugene Pirogov, Ezmyrelda Andrade, Fabian Rodriguez, Fabian Tamp, Fabio Niephaus, Falko Richter, Florian Weingarten, Fonso, Garen Torikian, Guillaume LARIVIERE, Günter Kits, I´m a robot, Jason Ly, Jedd Ahyoung, Jensen Kuras, Jesse Pinho, Jesse W, Jim Meyer, Joel Glovier, Johan Bové, Joop Aué, Jordan Thornquest, Jordon Bedwell, Joseph Anderson, Julien Bourdeau, Justin Weiss, Kamil Dziemianowicz, Kevin Locke, Kevin Ushey, Leonard, Lukas, Mads Ohm Larsen, Malo Skrylevo, Marcus Stollsteimer, Mark Phelps, Mark Tareshawty, Martijn den Hoedt, Martin Jorn Rogalla, Martin Rogalla, Matt Rogers, Matt Sheehan, Matthias Nuessler, Max, Max Beizer, Max White, Merlos, Michael Giuffrida, Michael Tu, Mike Bland, Mike Callan, MonsieurV, Nate Berkopec, Neil Faccly, Nic West, Nicholas Burlett, Nicolas Hoizey, Parker Moore, Pascal Borreli, Pat Hawks, Paul Rayner, Pedro Euko, Peter Robins, Philipp Rudloff, Philippe Loctaux, Rafael Picanço, Renaud Martinet, Robert Papp, Ryan Burnette, Ryan Tomayko, Seb, Seth Warburton, Shannon, Stephen Crosby, Stuart Kent, Suriyaa Kudo, Sylvester Keil, Tanguy Krotoff, Toddy69, Tom Johnson, Tony Eichelberger, Tunghsiao Liu, Veres Lajos, Vitaly Repin, Will Norris, William Entriken, XhmikosR, chrisfinazzo, eksperimental, hartmel, jaybe@jekyll, kaatt, nightsense, nitoyon, robschia, schneems, sonnym, takuti, and tasken.&lt;/p&gt;
+<h3 id="dropped-support-of-importing-files-with-non-standard-extension-names">Dropped support of importing files with non-standard extension names</h3>
 
-&lt;p&gt;Happy Jekylling!&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Join the Discussion at Jekyll Talk</title>
-<link href="https://jekyllrb.com/news/2015/02/26/introducing-jekyll-talk/" rel="alternate" type="text/html" title="Join the Discussion at Jekyll Talk" />
-<published>2015-02-26T21:06:51-08:00</published>
-<updated>2015-02-26T21:06:51-08:00</updated>
-<id>https://jekyllrb.com/news/2015/02/26/introducing-jekyll-talk</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2015/02/26/introducing-jekyll-talk/">&lt;p&gt;We’re super excited to announce the launch of &lt;a href=&quot;https://talk.jekyllrb.com&quot;&gt;Jekyll Talk&lt;/a&gt;, a Discourse forum for anything related to Jekyll!&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">sass-embedded</code> only allows importing files that have extension names of <code class="language-plaintext highlighter-rouge">.sass</code>, <code class="language-plaintext highlighter-rouge">.scss</code> or <code class="language-plaintext highlighter-rouge">.css</code>. SCSS syntax in
+files with <code class="language-plaintext highlighter-rouge">.css</code> extension name will result in a syntax error.</p>
 
-&lt;p&gt;The forum was set up by &lt;a href=&quot;https://github.com/envygeeks&quot;&gt;@envygeeks&lt;/a&gt; to build a community more accessible to Jekyll users and more suitable for general discussion.&lt;/p&gt;
+<h3 id="dropped-support-of-importing-files-relative-to-site-source">Dropped support of importing files relative to site source</h3>
 
-&lt;p&gt;There’s already been a lot of interesting topics, including a &lt;a href=&quot;https://talk.jekyllrb.com/t/showcase-sites-made-using-jekyll/18&quot;&gt;site showcase&lt;/a&gt; and &lt;a href=&quot;https://talk.jekyllrb.com/t/poll-installation-priorities-for-3-0/106/9&quot;&gt;a poll for Jekyll 3.0 priorities&lt;/a&gt;.&lt;/p&gt;
+<p>In <code class="language-plaintext highlighter-rouge">v2.x</code>, the Converter allowed imports using paths relative to site source directory, even if the site source
+directory is not present in Sass’ <code class="language-plaintext highlighter-rouge">load_paths</code> option. This is a side effect of a bug in the converter, which will remain as is in
+<code class="language-plaintext highlighter-rouge">v2.x</code> due to its usage in the wild.</p>
 
-&lt;p&gt;Come join the fun!&lt;/p&gt;
-</content>
-<author>
-<name>alfredxing</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll 3.0.0.beta1 Released</title>
-<link href="https://jekyllrb.com/news/2015/01/24/jekyll-3-0-0-beta1-released/" rel="alternate" type="text/html" title="Jekyll 3.0.0.beta1 Released" />
-<published>2015-01-24T00:42:31-08:00</published>
-<updated>2015-01-24T00:42:31-08:00</updated>
-<id>https://jekyllrb.com/news/2015/01/24/jekyll-3-0-0-beta1-released</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2015/01/24/jekyll-3-0-0-beta1-released/">&lt;p&gt;Hey!&lt;/p&gt;
+<p>In <code class="language-plaintext highlighter-rouge">v3.x</code>, imports using paths relative to site source directory will not work out of box. To allow these imports, <code class="language-plaintext highlighter-rouge">.</code>
+(meaning current directory, or site source directory) need to be explicitly listed under <code class="language-plaintext highlighter-rouge">load_paths</code> option.</p>
 
-&lt;p&gt;Exciting news! First beta for Jekyll 3 is out. Check out the &lt;a href=&quot;https://github.com/jekyll/jekyll/blob/v3.0.0.beta1/History.markdown#head&quot;&gt;sizable
-changelog&lt;/a&gt;
-to get a feel for what changes are afoot. Key features:&lt;/p&gt;
+<h3 id="dropped-support-of-importing-files-with-the-same-filename-as-their-parent-file">Dropped support of importing files with the same filename as their parent file</h3>
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Speed.&lt;/strong&gt; Jekyll now features incremental regeneration and greatly
-improved problematic code that caused slow-downs.&lt;/li&gt;
-  &lt;li&gt;Gobs of bugfixes and customization.&lt;/li&gt;
-  &lt;li&gt;Uniformity and sanity to Jekyll extensions of Liquid.&lt;/li&gt;
-&lt;/ol&gt;
+<p>In <code class="language-plaintext highlighter-rouge">v2.x</code>, the Converter allowed imports of files with the same filename as their parent file from <code class="language-plaintext highlighter-rouge">sass_dir</code> or
+<code class="language-plaintext highlighter-rouge">load_paths</code>. This is a side effect of a bug in the Converter, which will remain as is in <code class="language-plaintext highlighter-rouge">v2.x</code> due to its usage in the
+wild.</p>
 
-&lt;p&gt;To install just run:&lt;/p&gt;
+<p>In <code class="language-plaintext highlighter-rouge">v3.x</code>, imports using the same filename of parent file will create a circular import. To fix such imports, rename
+either of the files, or use complete relative path from the parent file.</p>
 
-&lt;p&gt;{% highlight bash %}
-$ gem install jekyll –pre
-{% endhighlight %}&lt;/p&gt;
+<h3 id="behavioral-differences-in-sass-implementation">Behavioral Differences in Sass Implementation</h3>
 
-&lt;p&gt;Future versions will include &lt;a href=&quot;https://github.com/jekyll/jekyll/issues/3324&quot;&gt;some awesome new
-features&lt;/a&gt; that we haven’t
-built yet. If you see one you want to tackle, submit a PR &amp;amp; you’ll be
-featured in the Jekyll 3.0 release post as a contributor to that epic
-release.&lt;/p&gt;
+<p>There are a few intentional behavioral differences between Dart Sass and Ruby Sass. Please refer
+<a href="https://github.com/sass/dart-sass#behavioral-differences-from-ruby-sass">Behavioral Differences from Ruby Sass</a> for details.</p>]]></content><author><name>ashmaroli</name></author><category term="community" /><summary type="html"><![CDATA[Jekyll Sass Converter 3.0 shipped recently and is available to those using Jekyll 4.3 and above. This release contains major changes. Specifically, the plugin has stopped using sassc for converting your Sass partials and stylesheets into CSS files. Instead, the converter now uses the sass-embedded gem acting as an interface to Dart Sass, which is the current primary implementation of Sass under active development. The secondary implementation libsass which the sassc gem interfaced with has been deprecated by its developers.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Jekyll 4.3.1 Released</title><link href="https://jekyllrb.com/news/2022/10/26/jekyll-4-3-1-released/" rel="alternate" type="text/html" title="Jekyll 4.3.1 Released" /><published>2022-10-26T06:39:42-07:00</published><updated>2022-10-26T06:39:42-07:00</updated><id>https://jekyllrb.com/news/2022/10/26/jekyll-4-3-1-released</id><content type="html" xml:base="https://jekyllrb.com/news/2022/10/26/jekyll-4-3-1-released/"><![CDATA[<p>Hello Jekyllers!</p>
 
-&lt;p&gt;Please file bugs as you encounter them, being sure to include your version
-of Ruby, the Jekyll version, and (if possible) a link to your site so we
-can reproduce.&lt;/p&gt;
+<p>We’re shipping <code class="language-plaintext highlighter-rouge">v4.3.1</code> containing fixes for two issues with v4.3.0:</p>
+<ul>
+  <li>Jekyll now respects user-defined <code class="language-plaintext highlighter-rouge">name</code> attribute for collection documents when accessed in Liquid templates.</li>
+  <li>Revert the changes made to trigger incremental rebuilds when data files are changed.</li>
+</ul>
 
-&lt;p&gt;If you think there’s room for improvement in the UX, also do let us know.
-We’re always looking to make Jekyll easier to use!&lt;/p&gt;
+<p>Thanks to the users who took the time to report the issues to us.
+Happy Jekyllin’</p>
 
-&lt;p&gt;Happy Jekylling!&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-<entry>
-<title>Jekyll Meet &amp;amp; Greet at GitHub HQ</title>
-<link href="https://jekyllrb.com/news/2015/01/20/jekyll-meet-and-greet/" rel="alternate" type="text/html" title="Jekyll Meet &amp; Greet at GitHub HQ" />
-<published>2015-01-20T19:23:12-08:00</published>
-<updated>2015-01-20T19:23:12-08:00</updated>
-<id>https://jekyllrb.com/news/2015/01/20/jekyll-meet-and-greet</id>
-<content type="html" xml:base="https://jekyllrb.com/news/2015/01/20/jekyll-meet-and-greet/">&lt;p&gt;Hey! Our friends at GitHub have agreed to host a Jekyll meet &amp;amp; greet on
-&lt;strong&gt;February 5, 2015 at 7pm&lt;/strong&gt;. The event will be hosted at
-&lt;a href=&quot;https://goo.gl/maps/Bmy7i&quot;&gt;GitHub’s Headquarters&lt;/a&gt;
-here in San Francisco, CA. Pizza &amp;amp; beer will be available for those interested,
-and there will be much time to sit and chat about all things Jekyll. This would
-be an especially good time to get help with bugs you’ve encountered or to talk
-over a potential feature with the core team in attendance.&lt;/p&gt;
-
-&lt;p&gt;A special thanks to &lt;a href=&quot;https://github.com/gjtorikian&quot;&gt;@gjtorikian&lt;/a&gt; for making this
-all possible! You rock.&lt;/p&gt;
-
-&lt;p&gt;We look forward to meeting all you fine folks. Cheers!&lt;/p&gt;
-</content>
-<author>
-<name>parkr</name>
-</author>
-<summary></summary>
-</entry>
-</feed>
+<p>P.S. Development towards v5 has taken a back seat as of now. I plan on releasing a v4.4.0 instead.
+That said, please feel free to comment on the <a href="https://github.com/jekyll/jekyll/issues/9156">tentative roadmap to v5</a>.</p>]]></content><author><name>ashmaroli</name></author><category term="release" /><summary type="html"><![CDATA[Hello Jekyllers!]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://jekyllrb.com/img/jekyll-og.png" /><media:content medium="image" url="https://jekyllrb.com/img/jekyll-og.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
